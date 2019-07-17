@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Scout2019</string>
+    <string name="scout_name">Ryan Alexander</string>
+    <string name="match_number">Qualification Match 1</string>
+    <string name="team_number">2502</string>
+    <string name="alliance">Red</string>
+    <string name="button_start_match">Start Match</string>
+    <string name="button_start_climb">Start Climb</string>
+    <string-array name="climb_options">
+        <item>Hab 1</item>
+        <item>Hab 2</item>
+        <item>Hab 3</item>
+        <item>Did Not Climb</item>
+    </string-array>
+</resources>
