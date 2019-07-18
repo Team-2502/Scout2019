@@ -13,9 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ClimbActivity"></activity>
+        <activity android:name=".ClimbActivity"/>
         <activity android:name=".MapActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".PreMatchActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

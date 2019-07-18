@@ -12,4 +12,11 @@
         <item>Hab 3</item>
         <item>Did Not Climb</item>
     </string-array>
+    <string-array name="scout_initials">
+        <item>RA</item>
+        <item>RM</item>
+        <item>RJ</item>
+        <item>IS</item>
+        <item>EL</item>
+    </string-array>
 </resources>
