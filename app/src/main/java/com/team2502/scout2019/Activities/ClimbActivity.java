@@ -1,4 +1,4 @@
-package com.team2502.scout2019;
+package com.team2502.scout2019.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.team2502.scout2019.R;
 
 public class ClimbActivity extends AppCompatActivity {
 

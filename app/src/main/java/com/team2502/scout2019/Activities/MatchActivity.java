@@ -1,14 +1,15 @@
-package com.team2502.scout2019;
+package com.team2502.scout2019.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class MapActivity extends AppCompatActivity {
+import com.team2502.scout2019.R;
+
+public class MatchActivity extends AppCompatActivity {
 
     public static String timd_in_progress;
 
