@@ -82,16 +82,14 @@
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/ok_button"
-        android:layout_width="115dp"
-        android:layout_height="106dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="OK"
+        android:id="@+id/override_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="onOKClick"
+        android:text="FULL OVERRIDE"
         app:layout_constraintBottom_toBottomOf="@+id/replay"
-        app:layout_constraintEnd_toEndOf="@+id/match_num"
-        app:layout_constraintStart_toEndOf="@+id/drivers_station" />
+        app:layout_constraintEnd_toStartOf="@+id/button3" />
 
     <Switch
         android:id="@+id/replay"
@@ -105,4 +103,15 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@+id/drivers_station"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="onUpdateMatchNumber"
+        android:text="Update Match Number"
+        app:layout_constraintBottom_toBottomOf="@+id/override_button"
+        app:layout_constraintEnd_toEndOf="@+id/match_num"
+        app:layout_constraintTop_toTopOf="@+id/override_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

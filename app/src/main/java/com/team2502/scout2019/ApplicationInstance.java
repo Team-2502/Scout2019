@@ -28,12 +28,12 @@ public class ApplicationInstance extends Application {
     }
 
     //Gets the shared preference for string values
-    public String getSp(String key, String defaultValue) {
+    public static String getSp(String key, String defaultValue) {
         return ApplicationInstance.getSp().getString(key, defaultValue);
     }
 
     //Gets the shared preference for integer values
-    public int getSp(String key, int defaultValue) {
+    public static int getSp(String key, int defaultValue) {
         return ApplicationInstance.getSp().getInt(key, defaultValue);
     }
 

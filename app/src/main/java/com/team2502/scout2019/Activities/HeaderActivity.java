@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,19 +21,20 @@ public class HeaderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_header);
 
-        int this_match = (((ApplicationInstance) this.getApplication()).getSp("lastMatch", 0)) + 1;
+        int this_match = (ApplicationInstance.getSp("lastMatch", 0)) + 1;
         String this_match_string = "QM " + Integer.toString(this_match);
 
-        ImportUtils.getMatchData(Constants.SERIAL_TO_SCOUT.get(((ApplicationInstance) this.getApplication()).getSp("scoutSerialNumber", "oof")), this_match_string);
+        ImportUtils.getMatchData(Constants.SERIAL_TO_SCOUT.get(ApplicationInstance.getSp("scoutSerialNumber", "oof")), this_match_string);
 
         TextView team_to_scout_view = findViewById(R.id.teamToScout);
-        team_to_scout_view.setText(Integer.toString(((ApplicationInstance) this.getApplication()).getSp("team", 0)));
+        team_to_scout_view.setText(Integer.toString(ApplicationInstance.getSp("team", 0)));
 
         TextView match_number = findViewById(R.id.matchNumber);
         match_number.setText(this_match_string);
 
         TextView ds_view = findViewById(R.id.drivers_station);
-        String alliance = ((ApplicationInstance) this.getApplication()).getSp("alliance", "oof");
+        String alliance = (ApplicationInstance.getSp("alliance", "oof"));
+        Log.e("alliance", alliance);
         ds_view.setText(alliance);
         if (alliance.contains("Red")) {
             ds_view.setTextColor(Color.parseColor("#FF0000"));  // Red

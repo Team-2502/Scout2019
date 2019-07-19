@@ -122,7 +122,7 @@ public class QRDisplayActivity extends AppCompatActivity {
 
     //Takes scout back to Main Activity and increases the match number by 1.
     public void startHeaderActivity(View view) {
-        int last_match = ((ApplicationInstance) this.getApplication()).getSp("lastMatch", 0);
+        int last_match = (ApplicationInstance.getSp("lastMatch", 0));
         ApplicationInstance.setSp("lastMatch", last_match ++);
         Intent intent = new Intent(this, HeaderActivity.class);
         startActivity(intent);

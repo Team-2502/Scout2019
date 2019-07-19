@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:id="@+id/okButton"
         android:text="OK"
-        android:onClick="startHeaderActivity"/>
+        android:onClick="onOKClick"/>
     <ImageView
         android:layout_weight="1"
         android:id="@+id/QRCode_Display"

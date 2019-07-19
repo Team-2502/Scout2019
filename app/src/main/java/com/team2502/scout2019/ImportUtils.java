@@ -59,27 +59,31 @@ public class ImportUtils {
     }
 
     public static void getMatchData(String scoutNumber, String matchNumber) {
-        JSONObject backupData = null;
-        try {
-            backupData = new JSONObject(retrieveFile("assignments.txt"));
+        if(ApplicationInstance.getSp("isOverridden", 0) == 1){
+            ApplicationInstance.setSp("isOverridden", 0);
+        }
+        else{
+            try {
+                JSONObject backupData = new JSONObject(retrieveFile("assignments.txt"));
 
-            //Finds the final match number
-            //finalMatchNum = backupData.getJSONObject(matchNumber).length();
-            //ApplicationInstance.setSp("finalMatchNum", finalMatchNum);
+                //Finds the final match number
+                //finalMatchNum = backupData.getJSONObject(matchNumber).length();
+                //ApplicationInstance.setSp("finalMatchNum", finalMatchNum);
 
-            backupData = backupData.getJSONObject(matchNumber).getJSONObject(scoutNumber);
+                backupData = backupData.getJSONObject(matchNumber).getJSONObject(scoutNumber);
 
-            String allianceColor = backupData.getString("alliance");
-            int teamNum = backupData.getInt("team");
+                String allianceColor = backupData.getString("alliance");
+                int teamNum = backupData.getInt("team");
 
-            ApplicationInstance.setSp("alliance", allianceColor);
-            ApplicationInstance.setSp("team", teamNum);
+                ApplicationInstance.setSp("alliance", allianceColor);
+                ApplicationInstance.setSp("team", teamNum);
 
-            //Set assignment mode
-            //mAssignmentMode = assignmentType;
-            //ApplicationInstance.setSp("assignmentMode", assignmentType);
-        } catch (JSONException e) {
-            e.printStackTrace();
+                //Set assignment mode
+                //mAssignmentMode = assignmentType;
+                //ApplicationInstance.setSp("assignmentMode", assignmentType);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
