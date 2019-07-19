@@ -15,6 +15,8 @@ public class ApplicationInstance extends Application {
         //Log.e("Serial", Build.SERIAL);
         setSp("scoutSerialNumber", Build.SERIAL);
         setSp("lastMatch", 0);
+        setSp("isReplay", 0);
+        setSp("isOverridden", 0);
         ImportUtils.setSerialNumberHashMapConstant();
         //Log.e("HashMap", Constants.SERIAL_TO_SCOUT.get("lastMatch"));
     }

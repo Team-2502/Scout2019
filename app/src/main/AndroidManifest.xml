@@ -15,7 +15,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.QRDisplayActivity"></activity>
         <activity android:name=".Activities.PreMatchActivity" />
-        <activity android:name=".Activities.OverrideActivity" />
+        <activity android:name=".Activities.OverrideActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity android:name=".Activities.ClimbActivity" />
         <activity android:name=".Activities.MatchActivity" />
         <activity

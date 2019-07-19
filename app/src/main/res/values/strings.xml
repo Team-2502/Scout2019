@@ -19,4 +19,12 @@
         <item>IS</item>
         <item>EL</item>
     </string-array>
+    <string-array name="driver_stations">
+        <item>Red 1</item>
+        <item>Red 2</item>
+        <item>Red 3</item>
+        <item>Blue 1</item>
+        <item>Blue 2</item>
+        <item>Blue 3</item>
+    </string-array>
 </resources>

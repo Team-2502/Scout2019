@@ -52,7 +52,8 @@ public class HeaderActivity extends AppCompatActivity {
     }
 
     public void openOverrideActivity(View view){
-
+        Intent intent = new Intent(this, OverrideActivity.class);
+        startActivity(intent);
     }
 
     public void openRescanActivity(View view){
