@@ -46,7 +46,7 @@ public class HeaderActivity extends AppCompatActivity {
     public void startMatch(View view){
         String timd_in_progress = "uwu";
         ImageView background = findViewById(R.id.imageView4);
-        Intent intent = new Intent(this, PreMatchActivity.class);
+        Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
     }

@@ -16,7 +16,7 @@ public class MatchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.activity_match);
 
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
@@ -34,7 +34,7 @@ public class MatchActivity extends AppCompatActivity {
     }
 
     public void startClimb(View view){
-        Intent intent = new Intent(this, ClimbActivity.class);
+        Intent intent = new Intent(this, QRDisplayActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
     }
