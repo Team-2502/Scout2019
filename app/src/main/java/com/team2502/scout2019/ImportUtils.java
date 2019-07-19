@@ -61,6 +61,7 @@ public class ImportUtils {
     public static void getMatchData(String scoutNumber, String matchNumber) {
         if(ApplicationInstance.getSp("isOverridden", 0) == 1){
             ApplicationInstance.setSp("isOverridden", 0);
+            ApplicationInstance.setSp("assignmentMode", "override");
         }
         else{
             try {
@@ -77,6 +78,7 @@ public class ImportUtils {
 
                 ApplicationInstance.setSp("alliance", allianceColor);
                 ApplicationInstance.setSp("team", teamNum);
+                ApplicationInstance.setSp("assignmentMode", "file");
 
                 //Set assignment mode
                 //mAssignmentMode = assignmentType;
@@ -84,12 +86,6 @@ public class ImportUtils {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public static void setSerialNumberHashMapConstant(){
-        for(int i = 0;i < Constants.NUM_OF_TABLETS; i++){
-            Constants.SERIAL_TO_SCOUT.put(Constants.TABLET_SERIAL_NUMBERS[i], Constants.scoutIDs[i]);
         }
     }
 }

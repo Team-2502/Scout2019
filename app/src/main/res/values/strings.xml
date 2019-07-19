@@ -13,11 +13,11 @@
         <item>Did Not Climb</item>
     </string-array>
     <string-array name="scout_initials">
-        <item>RA</item>
-        <item>RM</item>
-        <item>RJ</item>
-        <item>IS</item>
-        <item>EL</item>
+        <item>Ryan A</item>
+        <item>Ritik M</item>
+        <item>Ravisha J</item>
+        <item>Ishan S</item>
+        <item>Evan L</item>
     </string-array>
     <string-array name="driver_stations">
         <item>Red 1</item>

@@ -31,7 +31,7 @@ public class OverrideActivity extends AppCompatActivity {
 
         Switch replay_view = findViewById(R.id.replay);
         Boolean is_replay = replay_view.isChecked();
-        ApplicationInstance.setSp("isReplay", 1);
+        ApplicationInstance.setSp("isReplay", "true");
 
         Spinner drivers_station = findViewById(R.id.drivers_station);
         ApplicationInstance.setSp("alliance", drivers_station.getSelectedItem().toString());

@@ -45,7 +45,7 @@ public class QRDisplayActivity extends AppCompatActivity {
 
         showMatchQR(timd_in_progress);
 
-        writeFileOnInternalStorage(("QM" + Integer.toString((((ApplicationInstance) this.getApplication()).getSp("lastMatch", 0)) + 1) + new SimpleDateFormat("MM-dd-yyyy-H:mm:ss").format(new Date())), timd_in_progress);
+        writeFileToStorage(("QM" + Integer.toString((((ApplicationInstance) this.getApplication()).getSp("lastMatch", 0)) + 1) + new SimpleDateFormat("MM-dd-yyyy-H:mm:ss").format(new Date())), timd_in_progress);
     }
 
     //Calls displayQR to display the QR.
@@ -104,8 +104,8 @@ public class QRDisplayActivity extends AppCompatActivity {
     }
 
     //Saves scout data as text file in tablet internal storage
-    public void writeFileOnInternalStorage(String sFileName, String sBody) {
-        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/qr_codes");
+    public void writeFileToStorage(String sFileName, String sBody) {
+        File file = new File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs");
         if (!file.exists()) {
             file.mkdir();
         }
