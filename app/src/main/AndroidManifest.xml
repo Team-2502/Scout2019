@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.QRDisplayActivity"></activity>
-        <activity android:name=".Activities.PreMatchActivity" />
+        <activity android:name=".Activities.PreMatchActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity android:name=".Activities.OverrideActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="landscape"

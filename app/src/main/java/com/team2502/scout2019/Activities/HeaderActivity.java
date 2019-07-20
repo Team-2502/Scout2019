@@ -44,7 +44,6 @@ public class HeaderActivity extends AppCompatActivity {
 
         TextView ds_view = findViewById(R.id.drivers_station);
         ds_view.setText(current_driver_station);
-        Log.e("DS", current_driver_station);
         if (current_driver_station.contains("Red")) {
             ds_view.setTextColor(Color.parseColor("#FF0000"));  // Red
         }
@@ -59,7 +58,7 @@ public class HeaderActivity extends AppCompatActivity {
         String current_scout = scout_spinner.getSelectedItem().toString();
 
         String timd_in_progress = ExportUtils.createTIMDHeader(current_match_string, current_team_scouting, current_assignment_mode, current_driver_station, current_scout, current_match_is_replay);
-        Intent intent = new Intent(this, MatchActivity.class);
+        Intent intent = new Intent(this, PreMatchActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
     }
