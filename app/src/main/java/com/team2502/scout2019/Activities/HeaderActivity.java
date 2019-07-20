@@ -69,6 +69,7 @@ public class HeaderActivity extends AppCompatActivity {
     }
 
     public void openRescanActivity(View view){
+        //TODO
         Intent intent = new Intent(this, QRDisplayActivity.class);
         startActivity(intent);
     }

@@ -35,6 +35,10 @@ public class Constants {
         put("Blue 1", "g");
         put("Blue 2", "h");
         put("Blue 3", "i");
-
+        put("Hab 1", "j");
+        put("Hab 2", "k");
+        put("Cargo", "l");
+        put("Hatch", "m");
+        put("None", "n");
     }};
 }
