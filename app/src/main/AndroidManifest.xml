@@ -24,7 +24,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
         <activity android:name=".Activities.ClimbActivity" />
-        <activity android:name=".Activities.MatchActivity" />
+        <activity android:name=".Activities.MatchActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity
             android:name=".Activities.HeaderActivity"
             android:screenOrientation="landscape"

@@ -6,52 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Activities.MatchActivity">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Cargo"
-        android:onClick="placeCargo"
-        android:scaleType="fitCenter"
-        android:src="@drawable/map_indicator_cargo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/map_indicator_cargo" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Hatch"
-        android:onClick="placeHatch"
-        android:scaleType="fitCenter"
-        android:src="@drawable/map_indicator_panel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        tools:src="@drawable/map_indicator_panel" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="startClimb"
-        android:text="@string/button_start_climb"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
-
     <TextView
-        android:id="@+id/timd"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Hello"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        android:text="TextView"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="246dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

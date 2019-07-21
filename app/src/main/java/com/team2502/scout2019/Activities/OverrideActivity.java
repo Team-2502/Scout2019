@@ -38,6 +38,8 @@ public class OverrideActivity extends AppCompatActivity {
 
         ApplicationInstance.setSp("isOverridden", 1);
 
+        //TODO Check that all fields are filled out
+
         Intent intent = new Intent(this, HeaderActivity.class);
         startActivity(intent);
     }

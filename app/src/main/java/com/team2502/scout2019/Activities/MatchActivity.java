@@ -1,17 +1,21 @@
 package com.team2502.scout2019.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.TextView;
 
+import com.team2502.scout2019.Dialogs.ExitHabDialog;
 import com.team2502.scout2019.R;
 
 public class MatchActivity extends AppCompatActivity {
 
     public static String timd_in_progress;
+    public static TextView match_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +25,21 @@ public class MatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
 
-        TextView textView = findViewById(R.id.timd);
-        textView.setText(timd_in_progress);
-    }
+        match_time = findViewById(R.id.textView4);
+        new CountDownTimer(150000, 1000) {
 
-    public void placeHatch(View view){
-        timd_in_progress += "h,";
-    }
+            public void onTick(long millisUntilFinished) {
+                match_time.setText("T-" + millisUntilFinished / 1000);
+            }
 
-    public void placeCargo(View view){
-        timd_in_progress += "c,";
+            public void onFinish() {
+                match_time.setText("T-0");
+            }
+        }.start();
+
+        DialogFragment newFragment = new ExitHabDialog();
+        newFragment.show(getSupportFragmentManager(), "exit_hab");
+
     }
 
     public void startClimb(View view){
