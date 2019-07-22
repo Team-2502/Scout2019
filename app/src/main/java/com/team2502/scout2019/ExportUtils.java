@@ -12,7 +12,7 @@ public class ExportUtils {
     }
     public static String createSSHeader(String is_no_show, String start_level, String preload, String timd_in_progress){
         String rawTIMD = timd_in_progress + "G" + Constants.TIMD_COMPRESSION_KEYS.get(is_no_show) + "H"
-                + Constants.TIMD_COMPRESSION_KEYS.get(start_level) + "I" + Constants.TIMD_COMPRESSION_KEYS.get(preload) + "|";
+                + Constants.TIMD_COMPRESSION_KEYS.get(start_level) + "I" + Constants.TIMD_COMPRESSION_KEYS.get(preload);
         Log.e("timdSS", rawTIMD);
         return rawTIMD;
     }

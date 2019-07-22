@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.team2502.scout2019.Dialogs.ExitHabDialog;
 import com.team2502.scout2019.R;
 
-public class MatchActivity extends AppCompatActivity {
+public class MatchActivity extends AppCompatActivity implements ExitHabDialog.ExitHabDialogListener{
 
     public static String timd_in_progress;
     public static TextView match_time;
@@ -37,8 +37,8 @@ public class MatchActivity extends AppCompatActivity {
             }
         }.start();
 
-        DialogFragment newFragment = new ExitHabDialog();
-        newFragment.show(getSupportFragmentManager(), "exit_hab");
+        DialogFragment exitHabFragment = new ExitHabDialog();
+        exitHabFragment.show(getSupportFragmentManager(), "ExitHabDialog");
 
     }
 
@@ -47,4 +47,15 @@ public class MatchActivity extends AppCompatActivity {
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
     }
+
+    @Override
+    public void onDialogLeftHabClick(DialogFragment dialog) {
+        timd_in_progress += "Jt|";
+    }
+
+    @Override
+    public void onDialogNotLeftHabClick(DialogFragment dialog) {
+        timd_in_progress += "Jf|";
+    }
+
 }
