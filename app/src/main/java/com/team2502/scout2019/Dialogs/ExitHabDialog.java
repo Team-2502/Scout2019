@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 
 public class ExitHabDialog extends DialogFragment {
+    //TODO This should probably be refactored https://stackoverflow.com/a/36139523
 
     public interface ExitHabDialogListener {
         void onDialogLeftHabClick(DialogFragment dialog);

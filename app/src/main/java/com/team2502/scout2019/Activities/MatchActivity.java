@@ -15,7 +15,8 @@ import com.team2502.scout2019.R;
 public class MatchActivity extends AppCompatActivity implements ExitHabDialog.ExitHabDialogListener{
 
     public static String timd_in_progress;
-    public static TextView match_time;
+    public static TextView match_time_view;
+    public double match_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +26,15 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
 
-        match_time = findViewById(R.id.textView4);
+        match_time_view = findViewById(R.id.matchTimer);
         new CountDownTimer(150000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                match_time.setText("T-" + millisUntilFinished / 1000);
+                match_time_view.setText("T-" + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-                match_time.setText("T-0");
+                match_time_view.setText("T-0");
             }
         }.start();
 
@@ -46,6 +47,13 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         Intent intent = new Intent(this, QRDisplayActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
+    }
+
+    public void intakeHatch(View view){
+
+    }
+    public void intakeCargo(View view){
+
     }
 
     @Override

@@ -7,10 +7,173 @@
     tools:context=".Activities.MatchActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/matchTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="246dp" />
+        android:layout_marginTop="16dp"
+        android:text="T-0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/teamScouting"
+        app:layout_constraintStart_toStartOf="@+id/teamScouting"
+        app:layout_constraintTop_toBottomOf="@+id/teamScouting" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/intake"
+        app:layout_constraintStart_toStartOf="@+id/intake"
+        app:layout_constraintTop_toBottomOf="@+id/intake"
+        app:srcCompat="@drawable/map_indicator_cargo" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/map_indicator_panel" />
+
+    <TextView
+        android:id="@+id/intake"
+        android:layout_width="168dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:text="Intake:"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/matchTimer" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="16dp"
+        android:background="#00140F0F"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/rocket_clip_art" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="168dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="64dp"
+        android:text="Place:"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/intake"
+        app:layout_constraintStart_toEndOf="@+id/intake"
+        app:layout_constraintTop_toTopOf="@+id/intake" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="168dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:srcCompat="@drawable/cargoship_clip_art" />
+
+    <TextView
+        android:id="@+id/teamScouting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="2502"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="@+id/textView6">
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="DROP" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNDO" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/textView6">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Climb"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defense"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INCAP"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
