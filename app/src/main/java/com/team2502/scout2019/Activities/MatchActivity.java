@@ -65,6 +65,11 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
     }
+    public void placeCargoShip(View view){
+        Intent intent = new Intent(this, PlaceCargoShipActivity.class);
+        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        startActivity(intent);
+    }
 
     @Override
     public void onDialogLeftHabClick(DialogFragment dialog) {
