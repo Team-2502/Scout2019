@@ -16,9 +16,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Activities.PlaceRocketActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/NoTitleDialog" />
+        <activity
             android:name=".Activities.IntakeActivity"
-            android:theme="@style/NoTitleDialog"
-            android:excludeFromRecents="true"/>
+            android:excludeFromRecents="true"
+            android:theme="@style/NoTitleDialog" />
         <activity android:name=".Activities.QRDisplayActivity" />
         <activity
             android:name=".Activities.PreMatchActivity"

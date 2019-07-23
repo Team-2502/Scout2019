@@ -60,6 +60,12 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         startActivity(intent);
     }
 
+    public void placeRocket(View view){
+        Intent intent = new Intent(this, PlaceRocketActivity.class);
+        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        startActivity(intent);
+    }
+
     @Override
     public void onDialogLeftHabClick(DialogFragment dialog) {
         timd_in_progress += "Jt|";
