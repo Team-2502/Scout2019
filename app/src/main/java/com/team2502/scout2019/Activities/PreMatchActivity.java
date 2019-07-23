@@ -13,6 +13,7 @@ import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
 
 public class PreMatchActivity extends AppCompatActivity {
+    //TODO Start Match w/o timer button
 
     private String timd_in_progress;
     RadioGroup start_pos;

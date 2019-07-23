@@ -50,10 +50,14 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void intakeHatch(View view){
-
+        Intent intent = new Intent(this, IntakeActivity.class);
+        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        startActivity(intent);
     }
     public void intakeCargo(View view){
-
+        Intent intent = new Intent(this, IntakeActivity.class);
+        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        startActivity(intent);
     }
 
     @Override

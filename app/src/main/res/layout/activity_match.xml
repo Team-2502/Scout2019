@@ -19,11 +19,12 @@
         app:layout_constraintTop_toBottomOf="@+id/teamScouting" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/intakeCargoButton"
         android:layout_width="168dp"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
+        android:onClick="intakeCargo"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="@+id/intake"
         app:layout_constraintStart_toStartOf="@+id/intake"
@@ -31,15 +32,16 @@
         app:srcCompat="@drawable/map_indicator_cargo" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/intakeHatchButton"
         android:layout_width="168dp"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
+        android:onClick="intakeHatch"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintEnd_toEndOf="@+id/intakeCargoButton"
+        app:layout_constraintStart_toStartOf="@+id/intakeCargoButton"
+        app:layout_constraintTop_toBottomOf="@+id/intakeCargoButton"
         app:srcCompat="@drawable/map_indicator_panel" />
 
     <TextView
@@ -56,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/matchTimer" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/placeRocketButton"
         android:layout_width="168dp"
         android:layout_height="168dp"
         android:layout_marginTop="16dp"
@@ -81,15 +83,15 @@
         app:layout_constraintTop_toTopOf="@+id/intake" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/placeCSButton"
         android:layout_width="168dp"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="@+id/placeRocketButton"
+        app:layout_constraintStart_toStartOf="@+id/placeRocketButton"
+        app:layout_constraintTop_toBottomOf="@+id/placeRocketButton"
         app:srcCompat="@drawable/cargoship_clip_art" />
 
     <TextView
@@ -113,12 +115,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintBottom_toBottomOf="@+id/placeCSButton"
+        app:layout_constraintStart_toEndOf="@+id/placeRocketButton"
         app:layout_constraintTop_toTopOf="@+id/textView6">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/dropButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -126,7 +128,7 @@
             android:text="DROP" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/undoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UNDO" />
@@ -139,12 +141,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton5"
+        app:layout_constraintBottom_toBottomOf="@+id/placeCSButton"
         app:layout_constraintStart_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/textView6">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/climbButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Climb"
@@ -156,7 +158,7 @@
             android:layout_height="80dp" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/defenseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Defense"
@@ -168,7 +170,7 @@
             android:layout_height="80dp" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/incapButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="INCAP"
