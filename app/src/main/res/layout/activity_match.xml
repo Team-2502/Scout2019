@@ -131,12 +131,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:onClick="drop"
             android:text="DROP" />
 
         <Button
             android:id="@+id/undoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="undo"
             android:text="UNDO" />
     </LinearLayout>
 
@@ -155,6 +157,7 @@
             android:id="@+id/climbButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="startClimb"
             android:text="Climb"
             android:textAlignment="center"
             android:textSize="36sp" />
@@ -167,6 +170,7 @@
             android:id="@+id/defenseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="defense"
             android:text="Defense"
             android:textAlignment="center"
             android:textSize="36sp" />
@@ -179,6 +183,7 @@
             android:id="@+id/incapButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="incap"
             android:text="INCAP"
             android:textAlignment="center"
             android:textSize="36sp" />

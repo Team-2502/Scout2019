@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="400dp"
+    tools:context=".Activities.DropActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioGroup
+            android:id="@+id/dropPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/dropCSButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CargoShip"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/dropRocketButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rocket"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+            <RadioButton
+                android:id="@+id/dropHPSButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Human Player Station"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+            <RadioButton
+                android:id="@+id/dropOtherButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Middle of Field"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+        </RadioGroup>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <CheckBox
+            android:id="@+id/defendedDropCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defended"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="buttonPress"
+            android:text="DONE"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

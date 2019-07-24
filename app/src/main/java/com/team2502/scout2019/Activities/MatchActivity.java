@@ -96,7 +96,13 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void drop(View view){
-        //TODO set current_piece to none and change buttons and add to TIMD
+        setIntakeEnabled();
+
+        Intent intent = new Intent(this, DropActivity.class);
+        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        intent.putExtra("com.team2502.scout2019.type", current_piece);
+        intent.putExtra("com.team2502.scout2019.time",  match_time);
+        startActivityForResult(intent, 4);
     }
 
     public void defense(View view){
@@ -126,6 +132,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         findViewById(R.id.placeRocketButton).setBackground(getDrawable(R.drawable.red_border));
         findViewById(R.id.placeCSButton).setEnabled(false);
         findViewById(R.id.placeCSButton).setBackground(getDrawable(R.drawable.red_border));
+
+        findViewById(R.id.dropButton).setEnabled(false);
     }
 
     public void setPlaceEnabled(){
@@ -137,6 +145,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         findViewById(R.id.placeRocketButton).setBackground(getDrawable(R.drawable.green_border));
         findViewById(R.id.placeCSButton).setEnabled(true);
         findViewById(R.id.placeCSButton).setBackground(getDrawable(R.drawable.green_border));
+
+        findViewById(R.id.dropButton).setEnabled(true);
     }
 
 }

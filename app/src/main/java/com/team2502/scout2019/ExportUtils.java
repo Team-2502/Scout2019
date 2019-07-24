@@ -51,4 +51,16 @@ public class ExportUtils {
         return temp_timd;
     }
 
+    public static String createDropAction(String timd_in_progress, String piece, String place, int match_time, boolean wasDefended){
+        String temp_timd = timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Drop") + "L" + Constants.TIMD_COMPRESSION_KEYS.get(place)
+                + "M" + match_time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece);
+        if(wasDefended){
+            temp_timd += "Pt,";
+        }
+        else{
+            temp_timd += "Pf,";
+        }
+        return temp_timd;
+    }
+
 }

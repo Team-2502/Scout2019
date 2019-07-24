@@ -15,11 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.PlaceActivity"
+        <activity
+            android:name=".Activities.DropActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
-            android:name=".Activities.PlaceRocketActivity"
+            android:name=".Activities.PlaceActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity
