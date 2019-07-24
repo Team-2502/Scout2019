@@ -103,25 +103,51 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void undo(View view){
-        //TODO if currently incap fix
+        //This whole method is just spaghetti code
+        boolean undoing_to_incap = false;
+
+        //No actions done
         if(!timd_in_progress.substring(timd_in_progress.length() - 1).equals(",")){
             Toast toast = Toast.makeText(getApplicationContext(), "Nothing to undo!", Toast.LENGTH_SHORT);
             toast.show();
+            return;
         }
         //Only one action
         else if(timd_in_progress.substring(0, timd_in_progress.length() - 1).lastIndexOf(",") == -1){
             timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("|") + 1);
+            if(timd_in_progress.substring(timd_in_progress.lastIndexOf("K") + 1, timd_in_progress.lastIndexOf("K") + 3).equals("ab")){
+                undoing_to_incap = true;
+            }
             Log.e("timdUndo", timd_in_progress);
         }
         //Multiple actions
         else{
             timd_in_progress = timd_in_progress.substring(0, timd_in_progress.length() - 1);
             timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf(",") + 1);
+            if(timd_in_progress.substring(timd_in_progress.lastIndexOf("K") + 1, timd_in_progress.lastIndexOf("K") + 3).equals("ab")){
+                undoing_to_incap = true;
+            }
             Log.e("timdUndo", timd_in_progress);
         }
 
-        undoButtonState();
-        current_piece = last_piece;
+        if(currently_incap){
+            if(current_piece.equals("None")){
+                setIntakeEnabled();
+            }
+            else{
+                setPlaceEnabled();
+            }
+            currently_incap = false;
+        }
+        else if(undoing_to_incap){
+            incapButtons();
+            currently_incap = true;
+        }
+        else{
+            undoButtonState();
+            current_piece = last_piece;
+        }
+
         findViewById(R.id.undoButton).setEnabled(false);
 
     }
@@ -162,6 +188,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, (int)match_time);
             Log.e("timdIncap", timd_in_progress);
         }
+
+        findViewById(R.id.undoButton).setEnabled(true);
     }
 
     @Override
