@@ -17,6 +17,7 @@ import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
 
 public class MatchActivity extends AppCompatActivity implements ExitHabDialog.ExitHabDialogListener{
+    //TODO Warn if pressing the back button
 
     public static String timd_in_progress;
     public TextView match_time_view;
@@ -67,9 +68,10 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         }
     }
 
-    public void startClimb(View view){
-        Intent intent = new Intent(this, QRDisplayActivity.class);
+    public void climb(View view){
+        Intent intent = new Intent(this, ClimbActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        intent.putExtra("com.team2502.scout2019.time", match_time);
         startActivity(intent);
     }
 

@@ -22,6 +22,7 @@ public class ClimbActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
+        double match_time = intent.getDoubleExtra("com.team2502.scout2019.time", 0);
 
         /*
         Leave for future reference!!!!!

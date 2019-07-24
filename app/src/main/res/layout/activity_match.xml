@@ -157,7 +157,7 @@
             android:id="@+id/climbButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="startClimb"
+            android:onClick="climb"
             android:text="Climb"
             android:textAlignment="center"
             android:textSize="36sp" />

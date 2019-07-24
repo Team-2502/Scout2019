@@ -37,7 +37,10 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Activities.ClimbActivity" />
+        <activity
+            android:name=".Activities.ClimbActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.MatchActivity"
             android:screenOrientation="landscape"
