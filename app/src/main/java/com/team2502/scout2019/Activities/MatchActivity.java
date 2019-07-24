@@ -19,7 +19,6 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     public TextView match_time_view;
     public double match_time;
     public String current_piece;
-    //TODO Set current_piece immediately out of SS
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,20 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
 
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
+        current_piece = intent.getStringExtra("com.team2502.scout2019.piece");
+
+        if(current_piece.equals("None")){
+            findViewById(R.id.intakeCargoButton).setEnabled(true);
+            findViewById(R.id.intakeHatchButton).setEnabled(true);
+            findViewById(R.id.placeRocketButton).setEnabled(false);
+            findViewById(R.id.placeCSButton).setEnabled(false);
+        }
+        else{
+            findViewById(R.id.intakeCargoButton).setEnabled(false);
+            findViewById(R.id.intakeHatchButton).setEnabled(false);
+            findViewById(R.id.placeRocketButton).setEnabled(true);
+            findViewById(R.id.placeCSButton).setEnabled(true);
+        }
 
         match_time_view = findViewById(R.id.matchTimer);
         new CountDownTimer(150000, 1000) {
@@ -44,9 +57,6 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
 
         DialogFragment exitHabFragment = new ExitHabDialog();
         exitHabFragment.show(getSupportFragmentManager(), "ExitHabDialog");
-
-        //TODO Set buttons enabled based on starting piece
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -51,6 +51,7 @@ public class PreMatchActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", ExportUtils.createSSHeader("false", level.getText().toString(), piece.getText().toString(), timd_in_progress));
+        intent.putExtra("com.team2502.scout2019.piece", piece.getText().toString());
         startActivity(intent);
     }
 
