@@ -30,16 +30,10 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         current_piece = intent.getStringExtra("com.team2502.scout2019.piece");
 
         if(current_piece.equals("None")){
-            findViewById(R.id.intakeCargoButton).setEnabled(true);
-            findViewById(R.id.intakeHatchButton).setEnabled(true);
-            findViewById(R.id.placeRocketButton).setEnabled(false);
-            findViewById(R.id.placeCSButton).setEnabled(false);
+            setIntakeEnabled();
         }
         else{
-            findViewById(R.id.intakeCargoButton).setEnabled(false);
-            findViewById(R.id.intakeHatchButton).setEnabled(false);
-            findViewById(R.id.placeRocketButton).setEnabled(true);
-            findViewById(R.id.placeCSButton).setEnabled(true);
+            setPlaceEnabled();
         }
 
         match_time_view = findViewById(R.id.matchTimer);
@@ -74,13 +68,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         startActivity(intent);
     }
 
-    //TODO Add borders to the buttons which are enabled
     public void intake(View view){
-        findViewById(R.id.intakeCargoButton).setEnabled(false);
-        findViewById(R.id.intakeHatchButton).setEnabled(false);
-        findViewById(R.id.placeRocketButton).setEnabled(true);
-        findViewById(R.id.placeCSButton).setEnabled(true);
-
+        setPlaceEnabled();
         current_piece = view.getContentDescription().toString();
 
         Intent intent = new Intent(this, IntakeActivity.class);
@@ -92,11 +81,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void place(View view){
-        Log.e("piece", current_piece);
-        findViewById(R.id.intakeCargoButton).setEnabled(true);
-        findViewById(R.id.intakeHatchButton).setEnabled(true);
-        findViewById(R.id.placeRocketButton).setEnabled(false);
-        findViewById(R.id.placeCSButton).setEnabled(false);
+        setIntakeEnabled();
 
         Intent intent = new Intent(this, PlaceActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
@@ -130,6 +115,28 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     @Override
     public void onDialogNotLeftHabClick(DialogFragment dialog) {
         timd_in_progress += "Jf|";
+    }
+
+    public void setIntakeEnabled(){
+        findViewById(R.id.intakeCargoButton).setEnabled(true);
+        findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.green_border));
+        findViewById(R.id.intakeHatchButton).setEnabled(true);
+        findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.green_border));
+        findViewById(R.id.placeRocketButton).setEnabled(false);
+        findViewById(R.id.placeRocketButton).setBackground(getDrawable(R.drawable.red_border));
+        findViewById(R.id.placeCSButton).setEnabled(false);
+        findViewById(R.id.placeCSButton).setBackground(getDrawable(R.drawable.red_border));
+    }
+
+    public void setPlaceEnabled(){
+        findViewById(R.id.intakeCargoButton).setEnabled(false);
+        findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.red_border));
+        findViewById(R.id.intakeHatchButton).setEnabled(false);
+        findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.red_border));
+        findViewById(R.id.placeRocketButton).setEnabled(true);
+        findViewById(R.id.placeRocketButton).setBackground(getDrawable(R.drawable.green_border));
+        findViewById(R.id.placeCSButton).setEnabled(true);
+        findViewById(R.id.placeCSButton).setBackground(getDrawable(R.drawable.green_border));
     }
 
 }
