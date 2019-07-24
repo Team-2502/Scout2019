@@ -68,7 +68,7 @@ public class HeaderActivity extends AppCompatActivity {
     }
 
     public void openRescanActivity(View view){
-        //TODO
+        //TODO Add a timd from the past to the Intent so QRDisplay displays it
         Intent intent = new Intent(this, QRDisplayActivity.class);
         startActivity(intent);
     }

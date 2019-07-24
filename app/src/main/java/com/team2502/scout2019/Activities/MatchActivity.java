@@ -96,6 +96,22 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         startActivityForResult(intent, 4);
     }
 
+    public void undo(View view){
+        //TODO delete last action from TIMD and return it as well as setting buttons back to previous state
+    }
+
+    public void drop(View view){
+        //TODO set current_piece to none and change buttons and add to TIMD
+    }
+
+    public void defense(View view){
+        //TODO Create entirely new Activity, possibly not a dialog for this?
+    }
+
+    public void incap(View view){
+        //TODO disable all buttons and add to TIMD
+    }
+
     @Override
     public void onDialogLeftHabClick(DialogFragment dialog) {
         timd_in_progress += "Jt|";
