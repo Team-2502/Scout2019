@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.PlaceCargoShipActivity"
+        <activity android:name=".Activities.PlaceActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
         <activity

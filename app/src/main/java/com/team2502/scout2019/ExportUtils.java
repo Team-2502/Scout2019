@@ -23,4 +23,32 @@ public class ExportUtils {
                 + "M" + time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece) + ",";
     }
 
+    public static String createPlaceRocketAction(String timd_in_progress, String piece, int match_time, String level, boolean defense){
+        String temp_timd = timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Place") +
+                "L" + Constants.TIMD_COMPRESSION_KEYS.get("Rocket") +
+                "M" + match_time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece) +
+                "O" + Constants.TIMD_COMPRESSION_KEYS.get(level);
+        if(defense){
+            temp_timd += "Pt,";
+        }
+        else{
+            temp_timd += "Pf,";
+        }
+        return temp_timd;
+    }
+
+    public static String createPlaceCSAction(String timd_in_progress, String piece, int match_time, String place, boolean defense){
+        String temp_timd = timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Place") +
+                "L" + Constants.TIMD_COMPRESSION_KEYS.get("CargoShip") +
+                "M" + match_time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece) +
+                "O" + Constants.TIMD_COMPRESSION_KEYS.get("Level 1") + "Q" + Constants.TIMD_COMPRESSION_KEYS.get(place);
+        if(defense){
+            temp_timd += "Pt,";
+        }
+        else{
+            temp_timd += "Pf,";
+        }
+        return temp_timd;
+    }
+
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="400dp"
     android:layout_height="400dp"
-    tools:context=".Activities.PlaceCargoShipActivity">
+    tools:context=".Activities.PlaceActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioGroup
+            android:id="@+id/csPlace"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -63,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="CSButtonPress"
             android:text="DONE"
             android:textSize="36sp"
             android:textStyle="bold" />

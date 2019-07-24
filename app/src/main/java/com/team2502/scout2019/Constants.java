@@ -44,6 +44,13 @@ public class Constants {
         put("Ground", "p");
         put("Intake", "q");
         put("Place", "r");
+        put("Level 1", "s");
+        put("Level 2", "t");
+        put("Level 3", "u");
+        put("Front", "v");
+        put("Side", "w");
+        put("Rocket", "x");
+        put("CargoShip", "y");
 
     }};
 }
