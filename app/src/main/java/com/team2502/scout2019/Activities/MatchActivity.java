@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.team2502.scout2019.Dialogs.ExitHabDialog;
 import com.team2502.scout2019.R;
@@ -92,7 +94,23 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void undo(View view){
-        //TODO delete last action from TIMD and return it as well as setting buttons back to previous state
+        if(!timd_in_progress.substring(timd_in_progress.length() - 1).equals(",")){
+            Toast toast = Toast.makeText(getApplicationContext(), "Nothing to undo!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        //Only one action
+        else if(timd_in_progress.substring(0, timd_in_progress.length() - 1).lastIndexOf(",") == -1){
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf("|") + 1);
+            Log.e("timdUndo", timd_in_progress);
+        }
+        //Multiple actions
+        else{
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.length() - 1);
+            timd_in_progress = timd_in_progress.substring(0, timd_in_progress.lastIndexOf(",") + 1);
+            Log.e("timdUndo", timd_in_progress);
+        }
+
+        undoButtonState();
     }
 
     public void drop(View view){
@@ -147,6 +165,21 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         findViewById(R.id.placeCSButton).setBackground(getDrawable(R.drawable.green_border));
 
         findViewById(R.id.dropButton).setEnabled(true);
+    }
+    
+    public void undoButtonState(){
+        ImageButton[] buttons = new ImageButton[]{findViewById(R.id.intakeCargoButton), findViewById(R.id.intakeHatchButton),  findViewById(R.id.placeRocketButton), findViewById(R.id.placeCSButton)};
+        for (ImageButton button : buttons) {
+            button.setEnabled(!button.isEnabled());
+            if(button.isEnabled()){
+                button.setBackground(getDrawable(R.drawable.green_border));
+            }
+            else{
+                button.setBackground(getDrawable(R.drawable.red_border));
+            }
+        }
+
+        findViewById(R.id.dropButton).setEnabled(!findViewById(R.id.dropButton).isEnabled());
     }
 
 }
