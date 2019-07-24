@@ -19,7 +19,8 @@
             android:id="@+id/groundIntakeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GROUND" />
+            android:onClick="buttonPress"
+            android:text="Ground" />
 
         <Space
             android:layout_width="match_parent"
@@ -29,6 +30,7 @@
             android:id="@+id/stationIntakeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="HUMAN PLAYER STATION" />
+            android:onClick="buttonPress"
+            android:text="Human Player Station" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

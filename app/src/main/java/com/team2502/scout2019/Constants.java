@@ -40,5 +40,10 @@ public class Constants {
         put("Cargo", "l");
         put("Hatch", "m");
         put("None", "n");
+        put("Human Player Station", "o");
+        put("Ground", "p");
+        put("Intake", "q");
+        put("Place", "r");
+
     }};
 }

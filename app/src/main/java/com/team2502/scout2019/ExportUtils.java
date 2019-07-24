@@ -18,4 +18,9 @@ public class ExportUtils {
         return rawTIMD;
     }
 
+    public static String createIntakeAction(String timd_in_progress, String piece, String place, int time){
+        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Intake") + "L" + Constants.TIMD_COMPRESSION_KEYS.get(place)
+                + "M" + time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece) + ",";
+    }
+
 }

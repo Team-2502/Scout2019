@@ -6,7 +6,9 @@ import androidx.fragment.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.team2502.scout2019.Dialogs.ExitHabDialog;
@@ -30,6 +32,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         new CountDownTimer(150000, 1000) {
 
             public void onTick(long millisUntilFinished) {
+                match_time = millisUntilFinished / 1000;
                 match_time_view.setText("T-" + millisUntilFinished / 1000);
             }
 
@@ -41,6 +44,17 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         DialogFragment exitHabFragment = new ExitHabDialog();
         exitHabFragment.show(getSupportFragmentManager(), "ExitHabDialog");
 
+        //TODO Set buttons enabled based on starting piece
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 4) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("Return from Intake", timd_in_progress);
+            }
+        }
     }
 
     public void startClimb(View view){
@@ -49,15 +63,18 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         startActivity(intent);
     }
 
-    public void intakeHatch(View view){
+    public void intake(View view){
+        findViewById(R.id.intakeCargoButton).setEnabled(false);
+        findViewById(R.id.intakeHatchButton).setEnabled(false);
+        findViewById(R.id.placeRocketButton).setEnabled(true);
+        findViewById(R.id.placeCSButton).setEnabled(true);
+
         Intent intent = new Intent(this, IntakeActivity.class);
+        Log.e("Time to send:", Double.toString(match_time));
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
-        startActivity(intent);
-    }
-    public void intakeCargo(View view){
-        Intent intent = new Intent(this, IntakeActivity.class);
-        intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
-        startActivity(intent);
+        intent.putExtra("com.team2502.scout2019.type", view.getContentDescription().toString());
+        intent.putExtra("com.team2502.scout2019.time",  match_time);
+        startActivityForResult(intent, 4);
     }
 
     public void placeRocket(View view){
