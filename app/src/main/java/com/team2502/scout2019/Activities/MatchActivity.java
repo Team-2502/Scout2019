@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.team2502.scout2019.Dialogs.ExitHabDialog;
+import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
 
 public class MatchActivity extends AppCompatActivity implements ExitHabDialog.ExitHabDialogListener{
@@ -21,6 +22,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     public TextView match_time_view;
     public double match_time;
     public String current_piece;
+    public boolean currently_incap;
+    public String last_piece;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     public void intake(View view){
         setPlaceEnabled();
         current_piece = view.getContentDescription().toString();
+        last_piece = "None";
+        findViewById(R.id.undoButton).setEnabled(true);
 
         Intent intent = new Intent(this, IntakeActivity.class);
         Log.e("Time to send:", Double.toString(match_time));
@@ -84,6 +89,10 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
 
     public void place(View view){
         setIntakeEnabled();
+        last_piece = current_piece;
+        current_piece = "None";
+
+        findViewById(R.id.undoButton).setEnabled(true);
 
         Intent intent = new Intent(this, PlaceActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
@@ -94,6 +103,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void undo(View view){
+        //TODO if currently incap fix
         if(!timd_in_progress.substring(timd_in_progress.length() - 1).equals(",")){
             Toast toast = Toast.makeText(getApplicationContext(), "Nothing to undo!", Toast.LENGTH_SHORT);
             toast.show();
@@ -111,10 +121,17 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         }
 
         undoButtonState();
+        current_piece = last_piece;
+        findViewById(R.id.undoButton).setEnabled(false);
+
     }
 
     public void drop(View view){
         setIntakeEnabled();
+        findViewById(R.id.undoButton).setEnabled(true);
+
+        last_piece = current_piece;
+        current_piece = "None";
 
         Intent intent = new Intent(this, DropActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
@@ -128,7 +145,23 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void incap(View view){
-        //TODO disable all buttons and add to TIMD
+        if(currently_incap){
+            if(current_piece.equals("None")){
+                setIntakeEnabled();
+            }
+            else{
+                setPlaceEnabled();
+            }
+            timd_in_progress = ExportUtils.createRecapAction(timd_in_progress, (int)match_time);
+            Log.e("timdRecap", timd_in_progress);
+            currently_incap = false;
+        }
+        else{
+            incapButtons();
+            currently_incap = true;
+            timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, (int)match_time);
+            Log.e("timdIncap", timd_in_progress);
+        }
     }
 
     @Override
@@ -168,7 +201,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
     
     public void undoButtonState(){
-        ImageButton[] buttons = new ImageButton[]{findViewById(R.id.intakeCargoButton), findViewById(R.id.intakeHatchButton),  findViewById(R.id.placeRocketButton), findViewById(R.id.placeCSButton)};
+        ImageButton[] buttons = new ImageButton[]{findViewById(R.id.intakeCargoButton),
+                findViewById(R.id.intakeHatchButton),  findViewById(R.id.placeRocketButton), findViewById(R.id.placeCSButton)};
         for (ImageButton button : buttons) {
             button.setEnabled(!button.isEnabled());
             if(button.isEnabled()){
@@ -178,8 +212,16 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 button.setBackground(getDrawable(R.drawable.red_border));
             }
         }
-
         findViewById(R.id.dropButton).setEnabled(!findViewById(R.id.dropButton).isEnabled());
     }
 
+    public void incapButtons(){
+        ImageButton[] buttons = new ImageButton[]{findViewById(R.id.intakeCargoButton),
+                findViewById(R.id.intakeHatchButton),  findViewById(R.id.placeRocketButton), findViewById(R.id.placeCSButton)};
+        for (ImageButton button : buttons) {
+            button.setEnabled(false);
+            button.setBackground(getDrawable(R.drawable.red_border));
+            }
+        findViewById(R.id.dropButton).setEnabled(false);
+    }
 }

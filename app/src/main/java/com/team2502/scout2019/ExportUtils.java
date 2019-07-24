@@ -63,4 +63,11 @@ public class ExportUtils {
         return temp_timd;
     }
 
+    public static String createRecapAction(String timd_in_progress, int time){
+        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Recap") + "M" + time + ",";
+    }
+
+    public static String createIncapAction(String timd_in_progress, int time){
+        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "M" + time + ",";
+    }
 }

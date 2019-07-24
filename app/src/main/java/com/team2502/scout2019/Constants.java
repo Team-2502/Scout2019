@@ -53,5 +53,7 @@ public class Constants {
         put("CargoShip", "y");
         put("Drop", "z");
         put("Middle of Field", "aa");
+        put("Incap", "ab");
+        put("Recap", "ac");
     }};
 }
