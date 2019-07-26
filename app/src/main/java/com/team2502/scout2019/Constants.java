@@ -55,5 +55,6 @@ public class Constants {
         put("Middle of Field", "aa");
         put("Incap", "ab");
         put("Recap", "ac");
+        put("Climb", "ad");
     }};
 }

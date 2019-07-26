@@ -70,4 +70,16 @@ public class ExportUtils {
     public static String createIncapAction(String timd_in_progress, int time){
         return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "M" + time + ",";
     }
+
+    public static String createClimb(String timd_in_progress, int climb_start_time, String actualC, String attemptC, boolean doubleC, boolean tripleC){
+        String temp_timd = timd_in_progress.substring(0, timd_in_progress.length() - 1) + "|";
+        temp_timd = temp_timd + "M" + climb_start_time + "R" + Constants.TIMD_COMPRESSION_KEYS.get(actualC) + "S" + Constants.TIMD_COMPRESSION_KEYS.get(attemptC);
+        if(doubleC){
+            temp_timd += "Tt";
+        }
+        else if(tripleC){
+            temp_timd += "Ut";
+        }
+        return temp_timd;
+    }
 }

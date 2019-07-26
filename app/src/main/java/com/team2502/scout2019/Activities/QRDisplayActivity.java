@@ -129,3 +129,11 @@ public class QRDisplayActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
+        /*
+        Leave for future reference!!!!!
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+        myRef.child("rawTIMDs").child(timd_in_progress.split(",")[0]).setValue(timd_in_progress);
+        */
