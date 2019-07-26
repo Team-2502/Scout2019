@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -61,6 +62,7 @@ public class ClimbActivity extends AppCompatActivity {
         RadioButton actualC = findViewById(actualID);
 
         timd_in_progress = ExportUtils.createClimb(timd_in_progress, (int)climb_start_time, actualC.getText().toString(), attemptC.getText().toString(), doubleC.isChecked(), tripleC.isChecked());
+        Log.e("timdClimb", timd_in_progress);
         Intent intent = new Intent(this, QRDisplayActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         startActivity(intent);
