@@ -1,18 +1,24 @@
 package com.team2502.scout2019.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.obsez.android.lib.filechooser.ChooserDialog;
 import com.team2502.scout2019.ApplicationInstance;
 import com.team2502.scout2019.Constants;
 import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.ImportUtils;
 import com.team2502.scout2019.R;
+
+import java.io.File;
 
 public class HeaderActivity extends AppCompatActivity {
 
@@ -67,10 +73,28 @@ public class HeaderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openRescanActivity(View view){
-        //TODO Add a timd from the past to the Intent so QRDisplay displays it
-        Intent intent = new Intent(this, QRDisplayActivity.class);
-        startActivity(intent);
+    public void openFilePickerDialog(View view){
+        new ChooserDialog(HeaderActivity.this)
+                .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs")
+                .withChosenListener(new ChooserDialog.Result() {
+                    @Override
+                    public void onChoosePath(String path, File pathFile) {
+                        String timd = ImportUtils.readFile(path);
+                        Log.e("timd", timd);
+                        Intent intent = new Intent(HeaderActivity.this, QRDisplayActivity.class);
+                        intent.putExtra("com.team2502.scout2019.timd", timd);
+                        intent.putExtra("com.team2502.scout2019.rescan", true);
+                        startActivity(intent);
+                    }
+                })
+                // to handle the back key pressed or clicked outside the dialog:
+                .withOnCancelListener(new DialogInterface.OnCancelListener() {
+                    public void onCancel(DialogInterface dialog) {
+                        dialog.cancel();
+                    }
+                })
+                .build()
+                .show();
     }
 
 }

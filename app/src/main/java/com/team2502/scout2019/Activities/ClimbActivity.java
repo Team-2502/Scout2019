@@ -65,6 +65,7 @@ public class ClimbActivity extends AppCompatActivity {
         Log.e("timdClimb", timd_in_progress);
         Intent intent = new Intent(this, QRDisplayActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+        intent.putExtra("com.team2502.scout2019.rescan", false);
         startActivity(intent);
     }
 

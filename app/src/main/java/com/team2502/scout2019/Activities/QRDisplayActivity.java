@@ -26,6 +26,7 @@ import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class QRDisplayActivity extends AppCompatActivity {
@@ -42,10 +43,17 @@ public class QRDisplayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
+        boolean rescan = intent.getBooleanExtra("com.team2502.scout2019.rescan", false);
 
         showMatchQR(timd_in_progress);
 
-        writeFileToStorage(("QM" + Integer.toString((((ApplicationInstance) this.getApplication()).getSp("lastMatch", 0)) + 1) + new SimpleDateFormat("MM-dd-yyyy-H:mm:ss").format(new Date())), timd_in_progress);
+        if(!rescan){
+            writeFileToStorage(("QM" + (ApplicationInstance.getSp("lastMatch", 0) + 1) + "_" + new SimpleDateFormat("MM-dd-yyyy-H:mm:ss", Locale.US).format(new Date())), timd_in_progress);
+
+            int last_match = (ApplicationInstance.getSp("lastMatch", 0));
+            last_match++;
+            ApplicationInstance.setSp("lastMatch", last_match);
+        }
     }
 
     //Calls displayQR to display the QR.
@@ -122,9 +130,6 @@ public class QRDisplayActivity extends AppCompatActivity {
 
     //Takes scout back to Main Activity and increases the match number by 1.
     public void onOKClick(View view) {
-        int last_match = (ApplicationInstance.getSp("lastMatch", 0));
-        last_match++;
-        ApplicationInstance.setSp("lastMatch", last_match);
         Intent intent = new Intent(this, HeaderActivity.class);
         startActivity(intent);
     }
