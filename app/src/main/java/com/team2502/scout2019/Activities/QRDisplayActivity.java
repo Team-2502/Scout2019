@@ -37,6 +37,11 @@ public class QRDisplayActivity extends AppCompatActivity {
     ImageView tQRView;
 
     @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_display);

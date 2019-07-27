@@ -17,7 +17,6 @@ import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
 
 public class MatchActivity extends AppCompatActivity implements ExitHabDialog.ExitHabDialogListener{
-    //TODO Warn if pressing the back button
 
     public static String timd_in_progress;
     public TextView match_time_view;
@@ -25,6 +24,11 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     public String current_piece;
     public boolean currently_incap;
     public String last_piece;
+
+    @Override
+    public void onBackPressed() {
+        //TODO Confirm they really want to go back
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

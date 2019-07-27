@@ -74,6 +74,7 @@ public class HeaderActivity extends AppCompatActivity {
     }
 
     public void openFilePickerDialog(View view){
+        // https://github.com/hedzr/android-file-chooser
         new ChooserDialog(HeaderActivity.this)
                 .withStartFile(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "/Scouting/rawTIMDs")
                 .withChosenListener(new ChooserDialog.Result() {

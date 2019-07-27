@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
@@ -22,6 +23,11 @@ public class PlaceActivity extends AppCompatActivity {
     public RadioGroup rocketLevel;
     public RadioGroup csPlace;
     public CheckBox wasDefended;
+
+    @Override
+    public void onBackPressed() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,14 @@ public class PlaceActivity extends AppCompatActivity {
     public void rocketButtonPress(View view){
         int selectedLevelId = rocketLevel.getCheckedRadioButtonId();
         RadioButton level = findViewById(selectedLevelId);
-        timd_in_progress = ExportUtils.createPlaceRocketAction(timd_in_progress, piece, match_time, level.getText().toString(), wasDefended.isChecked());
+        try {
+            timd_in_progress = ExportUtils.createPlaceRocketAction(timd_in_progress, piece, match_time, level.getText().toString(), wasDefended.isChecked());
+        }
+        catch (NullPointerException e){
+            Toast toast = Toast.makeText(getApplicationContext(), "Fill out all the fields!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);
@@ -58,7 +71,14 @@ public class PlaceActivity extends AppCompatActivity {
     public void CSButtonPress(View view){
         int selectedLevelId = csPlace.getCheckedRadioButtonId();
         RadioButton place = findViewById(selectedLevelId);
-        timd_in_progress = ExportUtils.createPlaceCSAction(timd_in_progress, piece, match_time, place.getText().toString(), wasDefended.isChecked());
+        try {
+            timd_in_progress = ExportUtils.createPlaceCSAction(timd_in_progress, piece, match_time, place.getText().toString(), wasDefended.isChecked());
+        }
+        catch (NullPointerException e){
+            Toast toast = Toast.makeText(getApplicationContext(), "Fill out all the fields!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);

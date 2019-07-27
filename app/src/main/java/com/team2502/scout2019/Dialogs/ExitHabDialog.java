@@ -33,6 +33,7 @@ public class ExitHabDialog extends DialogFragment {
                         listener.onDialogNotLeftHabClick(ExitHabDialog.this);
                     }
                 });
+        setCancelable(false);
         return builder.create();
     }
 

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.team2502.scout2019.ExportUtils;
 import com.team2502.scout2019.R;
@@ -21,6 +22,11 @@ public class DropActivity extends AppCompatActivity {
 
     public RadioGroup dropPlace;
     public CheckBox wasDefended;
+
+    @Override
+    public void onBackPressed() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,14 @@ public class DropActivity extends AppCompatActivity {
     public void buttonPress(View view){
         int selectedLevelId = dropPlace.getCheckedRadioButtonId();
         RadioButton place = findViewById(selectedLevelId);
-        timd_in_progress = ExportUtils.createDropAction(timd_in_progress, piece, place.getText().toString(), match_time, wasDefended.isChecked());
+        try {
+            timd_in_progress = ExportUtils.createDropAction(timd_in_progress, piece, place.getText().toString(), match_time, wasDefended.isChecked());
+        }
+        catch(NullPointerException e){
+            Toast toast = Toast.makeText(getApplicationContext(), "Fill out all the fields!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);

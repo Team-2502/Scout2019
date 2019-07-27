@@ -28,6 +28,11 @@ public class ClimbActivity extends AppCompatActivity {
     CheckBox tripleC;
 
     @Override
+    public void onBackPressed() {
+        //TODO Go back button
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_climb);
