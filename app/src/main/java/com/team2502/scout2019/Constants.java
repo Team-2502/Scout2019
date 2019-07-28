@@ -45,16 +45,16 @@ public class Constants {
         put("Intake", "q");
         put("Place", "r");
         put("Level 1", "s");
-        put("Level 2", "t");
-        put("Level 3", "u");
-        put("Front", "v");
-        put("Side", "w");
-        put("Rocket", "x");
-        put("CargoShip", "y");
-        put("Drop", "z");
-        put("Middle of Field", "aa");
-        put("Incap", "ab");
-        put("Recap", "ac");
-        put("Climb", "ad");
+        put("Level 2", "u");
+        put("Level 3", "v");
+        put("Front", "w");
+        put("Side", "x");
+        put("Rocket", "y");
+        put("CargoShip", "z");
+        put("Drop", "aa");
+        put("Middle of Field", "ab");
+        put("Incap", "ac");
+        put("Recap", "ad");
+        put("Climb", "ae");
     }};
 }
