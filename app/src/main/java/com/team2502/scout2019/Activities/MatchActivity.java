@@ -23,6 +23,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     public double match_time;
     public String current_piece;
     public boolean currently_incap;
+    public boolean currently_defense;
     public String last_piece;
 
     @Override
@@ -174,11 +175,29 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void defense(View view){
-        //TODO Create entirely new Activity, possibly not a dialog for this?
+        if(currently_defense){
+            if(current_piece.equals("None")){
+                setIntakeEnabled();
+            }
+            else{
+                setPlaceEnabled();
+            }
+            timd_in_progress = ExportUtils.createOffenseAction(timd_in_progress, (int)match_time);
+            Log.e("timdOffense", timd_in_progress);
+            currently_defense = false;
+        }
+        else{
+            incapButtons();
+            currently_defense = true;
+            timd_in_progress = ExportUtils.createDefenseAction(timd_in_progress, (int)match_time);
+            Log.e("timdDefense", timd_in_progress);
+        }
+
+        findViewById(R.id.undoButton).setEnabled(true);
     }
 
     public void incap(View view){
-        if(currently_incap){
+        if(currently_incap && !currently_defense){
             if(current_piece.equals("None")){
                 setIntakeEnabled();
             }

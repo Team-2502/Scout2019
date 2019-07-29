@@ -56,5 +56,6 @@ public class Constants {
         put("Incap", "ac");
         put("Recap", "ad");
         put("Climb", "ae");
+        put("Offense", "af");
     }};
 }
