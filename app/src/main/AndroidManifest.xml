@@ -28,7 +28,9 @@
             android:name=".Activities.IntakeActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
-        <activity android:name=".Activities.QRDisplayActivity" />
+        <activity android:name=".Activities.QRDisplayActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".Activities.PreMatchActivity"
             android:screenOrientation="landscape"

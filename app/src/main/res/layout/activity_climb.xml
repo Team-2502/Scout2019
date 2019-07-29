@@ -169,13 +169,22 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="15dp" />
 
         <CheckBox
             android:id="@+id/climbAssist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Assisted Partner to Hab 3"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/climbAssisted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Was Assisted to Hab 3"
             android:textAlignment="center"
             android:textSize="36sp"
             android:textStyle="bold" />
@@ -203,7 +212,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="15dp" />
 
         <Button
             android:id="@+id/doneClimbButton"

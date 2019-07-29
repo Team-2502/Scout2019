@@ -26,6 +26,8 @@ public class ClimbActivity extends AppCompatActivity {
     RadioGroup actual;
     CheckBox doubleC;
     CheckBox tripleC;
+    CheckBox assistedC;
+    CheckBox wasAssistedC;
 
     @Override
     public void onBackPressed() {
@@ -45,6 +47,8 @@ public class ClimbActivity extends AppCompatActivity {
         actual = findViewById(R.id.actualClimb);
         doubleC = findViewById(R.id.doubleClimb);
         tripleC = findViewById(R.id.tripleClimb);
+        assistedC = findViewById(R.id.climbAssist);
+        wasAssistedC = findViewById(R.id.climbAssisted);
 
     }
 
@@ -66,7 +70,8 @@ public class ClimbActivity extends AppCompatActivity {
         int actualID = actual.getCheckedRadioButtonId();
         RadioButton actualC = findViewById(actualID);
 
-        timd_in_progress = ExportUtils.createClimb(timd_in_progress, (int)climb_start_time, actualC.getText().toString(), attemptC.getText().toString(), doubleC.isChecked(), tripleC.isChecked());
+        timd_in_progress = ExportUtils.createClimb(timd_in_progress, (int)climb_start_time, actualC.getText().toString(),
+                attemptC.getText().toString(), doubleC.isChecked(), tripleC.isChecked(), assistedC.isChecked(), wasAssistedC.isChecked());
         Log.e("timdClimb", timd_in_progress);
         Intent intent = new Intent(this, QRDisplayActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
