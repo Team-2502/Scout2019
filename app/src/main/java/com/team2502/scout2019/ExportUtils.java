@@ -81,7 +81,7 @@ public class ExportUtils {
 
     public static String createClimb(String timd_in_progress, int climb_start_time, String actualC, String attemptC, boolean doubleC, boolean tripleC, boolean assistedC, boolean wasAssistedC){
         String temp_timd = timd_in_progress.substring(0, timd_in_progress.length() - 1);
-        temp_timd = temp_timd + "M" + climb_start_time + "R" + Constants.TIMD_COMPRESSION_KEYS.get(actualC) + "S" + Constants.TIMD_COMPRESSION_KEYS.get(attemptC);
+        temp_timd = temp_timd + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Climb") + "M" + climb_start_time + "R" + Constants.TIMD_COMPRESSION_KEYS.get(actualC) + "S" + Constants.TIMD_COMPRESSION_KEYS.get(attemptC);
         if(doubleC){
             temp_timd += "Tt";
         }
