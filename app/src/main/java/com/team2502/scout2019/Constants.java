@@ -21,11 +21,26 @@ public class Constants {
     }};
 
     public static final Map<String, String> SCOUT_NAME_TO_KEY = new HashMap<String, String>() {{
-        put("Ryan A", "a");
-        put("Evan L", "b");
-        put("Ritik M", "c");
-        put("Ravisha J", "d");
-        put("Ishan S", "e");
+        put("Adhi", "a");
+        put("Big Chief", "b");
+        put("Christian", "c");
+        put("Christopher", "d");
+        put("Danny", "e");
+        put("Drew", "f");
+        put("Evan", "g");
+        put("Isaac A", "s");
+        put("Ishan", "p");
+        put("Justin", "r");
+        put("Kyle", "h");
+        put("Michael", "q");
+        put("Miguel", "t");
+        put("Nathan", "i");
+        put("Neel", "j");
+        put("Nigel", "k");
+        put("Ravisha", "l");
+        put("Riley", "m");
+        put("Ritik", "n");
+        put("Ryan", "o");
     }};
 
     public static final Map<String, String> TIMD_COMPRESSION_KEYS = new HashMap<String, String>() {{
