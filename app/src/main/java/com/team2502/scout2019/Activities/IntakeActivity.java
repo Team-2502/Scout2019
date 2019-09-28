@@ -37,9 +37,17 @@ public class IntakeActivity extends AppCompatActivity {
     public void buttonPress(View view){
         Button b = (Button)view;
         String place = b.getText().toString();
+
+        if(place.equals("Cancel")){
+            Intent data = new Intent();
+            data.putExtra("piece", piece);
+            setResult(RESULT_CANCELED, data);
+            finish();
+        }
         timd_in_progress = ExportUtils.createIntakeAction(timd_in_progress, piece, place, match_time);
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
+        data.putExtra("piece", piece);
         setResult(RESULT_OK, data);
         finish();
     }

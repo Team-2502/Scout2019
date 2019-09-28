@@ -65,10 +65,33 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // 4 ---- Intake
         if (requestCode == 4) {
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdAction", timd_in_progress);
+                setPlaceEnabled();
+                current_piece = data.getStringExtra("piece");
+                last_piece = "None";
+                findViewById(R.id.undoButton).setEnabled(true);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
+        // 5 ---- Place
+        if (requestCode == 5) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+
+                setIntakeEnabled();
+                findViewById(R.id.undoButton).setEnabled(true);
+                last_piece = current_piece;
+                current_piece = "None";
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
             }
         }
     }
@@ -81,11 +104,6 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void intake(View view){
-        setPlaceEnabled();
-        current_piece = view.getContentDescription().toString();
-        last_piece = "None";
-        findViewById(R.id.undoButton).setEnabled(true);
-
         Intent intent = new Intent(this, IntakeActivity.class);
         Log.e("Time to send:", Double.toString(match_time));
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
