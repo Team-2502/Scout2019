@@ -113,19 +113,12 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void place(View view){
-        setIntakeEnabled();
-
-        findViewById(R.id.undoButton).setEnabled(true);
-
         Intent intent = new Intent(this, PlaceActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2019.type", current_piece);
         intent.putExtra("com.team2502.scout2019.time",  match_time);
         intent.putExtra("com.team2502.scout2019.place", view.getContentDescription().toString());
-        startActivityForResult(intent, 4);
-
-        last_piece = current_piece;
-        current_piece = "None";
+        startActivityForResult(intent, 5);
     }
 
     public void undo(View view){

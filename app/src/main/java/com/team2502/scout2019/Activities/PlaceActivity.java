@@ -85,4 +85,9 @@ public class PlaceActivity extends AppCompatActivity {
         setResult(RESULT_OK, data);
         finish();
     }
+
+    public void CancelButtonPress(View view){
+        setResult(RESULT_CANCELED);
+        finish();
+    }
 }
