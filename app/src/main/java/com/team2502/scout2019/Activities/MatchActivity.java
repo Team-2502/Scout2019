@@ -78,6 +78,17 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             else if(resultCode == RESULT_CANCELED) {
                 Log.e("timdAction", "Action Canceled");
             }
+            // Dropped in HPS
+            else if(resultCode == 1){
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+
+                setIntakeEnabled();
+                findViewById(R.id.undoButton).setEnabled(true);
+
+                last_piece = current_piece;
+                current_piece = "None";
+            }
         }
         // 5 ---- Place
         if (requestCode == 5) {

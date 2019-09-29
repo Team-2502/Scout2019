@@ -39,9 +39,14 @@ public class IntakeActivity extends AppCompatActivity {
         String place = b.getText().toString();
 
         if(place.equals("Cancel")){
+            setResult(RESULT_CANCELED);
+            finish();
+        }
+        if(place.equals("Drop")){
+            timd_in_progress = ExportUtils.createDropAction(timd_in_progress, piece, "Human Player Station", match_time, false);
             Intent data = new Intent();
-            data.putExtra("piece", piece);
-            setResult(RESULT_CANCELED, data);
+            data.setData(Uri.parse(timd_in_progress));
+            setResult(1, data);
             finish();
         }
         timd_in_progress = ExportUtils.createIntakeAction(timd_in_progress, piece, place, match_time);

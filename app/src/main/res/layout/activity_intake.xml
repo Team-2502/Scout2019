@@ -24,7 +24,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="30dp" />
 
         <Button
             android:id="@+id/stationIntakeButton"
@@ -35,7 +35,18 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/intake_drop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buttonPress"
+            android:text="Drop" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
 
         <Button
             android:id="@+id/intake_cancel"
