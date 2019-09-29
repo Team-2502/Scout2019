@@ -110,8 +110,16 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdAction", timd_in_progress);
+
+                setIntakeEnabled();
+                findViewById(R.id.undoButton).setEnabled(true);
+
+                last_piece = current_piece;
+                current_piece = "None";
             }
-            // TODO Allow to cancel drop
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
         }
     }
 
@@ -191,12 +199,6 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void drop(View view){
-        setIntakeEnabled();
-        findViewById(R.id.undoButton).setEnabled(true);
-
-        last_piece = current_piece;
-        current_piece = "None";
-
         Intent intent = new Intent(this, DropActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2019.type", current_piece);

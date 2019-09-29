@@ -46,6 +46,7 @@ public class DropActivity extends AppCompatActivity {
     public void buttonPress(View view){
         int selectedLevelId = dropPlace.getCheckedRadioButtonId();
         RadioButton place = findViewById(selectedLevelId);
+
         try {
             timd_in_progress = ExportUtils.createDropAction(timd_in_progress, piece, place.getText().toString(), match_time, wasDefended.isChecked());
         }
@@ -57,6 +58,11 @@ public class DropActivity extends AppCompatActivity {
         Intent data = new Intent();
         data.setData(Uri.parse(timd_in_progress));
         setResult(RESULT_OK, data);
+        finish();
+    }
+
+    public void cancelButtonPress(View view){
+        setResult(RESULT_CANCELED);
         finish();
     }
 }
