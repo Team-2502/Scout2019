@@ -65,22 +65,22 @@
         app:layout_constraintTop_toBottomOf="@+id/preloadTextView">
 
         <RadioButton
-            android:id="@+id/hatch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="5dp"
-            android:text="Hatch"
-            android:textSize="36sp"
-            android:textStyle="bold" />
-
-        <RadioButton
             android:id="@+id/cargo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingLeft="5dp"
             android:text="Cargo"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/hatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="Hatch"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -111,9 +111,36 @@
         android:layout_height="100dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="checkData"
         android:text="Start Timer"
+        app:layout_constraintBottom_toBottomOf="@+id/startingPiece"
         app:layout_constraintStart_toEndOf="@+id/preloadTextView"
-        app:layout_constraintTop_toBottomOf="@+id/startingPosition" />
+        app:layout_constraintTop_toTopOf="@+id/preloadTextView" />
+
+    <TextView
+        android:id="@+id/team_pre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="2502"
+        android:textSize="75sp"
+        app:layout_constraintEnd_toEndOf="@+id/noShowButton"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/startButton"
+        app:layout_constraintTop_toTopOf="@+id/startTextView" />
+
+    <TextView
+        android:id="@+id/driver_station_pre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Red 2"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/team_pre"
+        app:layout_constraintStart_toStartOf="@+id/team_pre"
+        app:layout_constraintTop_toBottomOf="@+id/team_pre" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

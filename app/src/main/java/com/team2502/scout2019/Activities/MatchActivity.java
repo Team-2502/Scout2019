@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +41,17 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         Intent intent = getIntent();
         timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
         current_piece = intent.getStringExtra("com.team2502.scout2019.piece");
+        String team = intent.getStringExtra("com.team2502.scout2019.team");
+        String driver_station = intent.getStringExtra("com.team2502.scout2019.driver_station");
+
+        TextView team_view = findViewById(R.id.teamScouting);
+        team_view.setText(team);
+        if (driver_station.contains("Red")) {
+            team_view.setTextColor(Color.parseColor("#FF0000")); // Red
+        }
+        else{
+            team_view.setTextColor(Color.parseColor("#0000FF")); // Blue
+        }
 
         if(current_piece.equals("None")){
             setIntakeEnabled();
@@ -53,6 +66,12 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             public void onTick(long millisUntilFinished) {
                 match_time = millisUntilFinished / 1000;
                 match_time_view.setText("T-" + millisUntilFinished / 1000);
+                if(millisUntilFinished / 1000 < 20){    // Endgame
+                    match_time_view.setTextColor(Color.RED);
+                }
+                else if(millisUntilFinished / 1000 < 30){   // Endgame warning
+                    match_time_view.setTextColor(Color.parseColor("#E8BA13"));
+                }
             }
 
             public void onFinish() {
@@ -207,6 +226,10 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void defense(View view){
+        CheckBox defense_box = findViewById(R.id.defense_check);
+        if(currently_incap){
+            return;
+        }
         if(currently_defense){
             if(current_piece.equals("None")){
                 setIntakeEnabled();
@@ -217,18 +240,21 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             timd_in_progress = ExportUtils.createOffenseAction(timd_in_progress, (int)match_time);
             Log.e("timdOffense", timd_in_progress);
             currently_defense = false;
+            defense_box.setChecked(false);
         }
         else{
             incapButtons();
             currently_defense = true;
             timd_in_progress = ExportUtils.createDefenseAction(timd_in_progress, (int)match_time);
             Log.e("timdDefense", timd_in_progress);
+            defense_box.setChecked(true);
         }
 
         findViewById(R.id.undoButton).setEnabled(true);
     }
 
     public void incap(View view){
+        CheckBox incap_box = findViewById(R.id.incap_check);
         if(currently_incap && !currently_defense){
             if(current_piece.equals("None")){
                 setIntakeEnabled();
@@ -239,10 +265,18 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             timd_in_progress = ExportUtils.createRecapAction(timd_in_progress, (int)match_time);
             Log.e("timdRecap", timd_in_progress);
             currently_incap = false;
+            incap_box.setChecked(false);
+        }
+        else if(currently_defense && currently_incap){
+            timd_in_progress = ExportUtils.createRecapAction(timd_in_progress, (int)match_time);
+            Log.e("timdRecap", timd_in_progress);
+            currently_incap = false;
+            incap_box.setChecked(false);
         }
         else{
             incapButtons();
             currently_incap = true;
+            incap_box.setChecked(true);
             timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, (int)match_time);
             Log.e("timdIncap", timd_in_progress);
         }
