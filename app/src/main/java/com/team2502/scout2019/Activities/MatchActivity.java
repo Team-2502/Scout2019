@@ -57,7 +57,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             setIntakeEnabled();
         }
         else{
-            setPlaceEnabled();
+            setPlaceEnabled(current_piece);
         }
 
         match_time_view = findViewById(R.id.matchTimer);
@@ -89,9 +89,9 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             if (resultCode == RESULT_OK) {
                 timd_in_progress = data.getData().toString();
                 Log.e("timdAction", timd_in_progress);
-                setPlaceEnabled();
                 current_piece = data.getStringExtra("piece");
                 last_piece = "None";
+                setPlaceEnabled(current_piece);
                 findViewById(R.id.undoButton).setEnabled(true);
             }
             else if(resultCode == RESULT_CANCELED) {
@@ -200,7 +200,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 setIntakeEnabled();
             }
             else{
-                setPlaceEnabled();
+                setPlaceEnabled(current_piece);
             }
             currently_incap = false;
         }
@@ -209,8 +209,8 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             currently_incap = true;
         }
         else{
-            undoButtonState();
             current_piece = last_piece;
+            undoButtonState();
         }
 
         findViewById(R.id.undoButton).setEnabled(false);
@@ -235,7 +235,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 setIntakeEnabled();
             }
             else{
-                setPlaceEnabled();
+                setPlaceEnabled(current_piece);
             }
             timd_in_progress = ExportUtils.createOffenseAction(timd_in_progress, (int)match_time);
             Log.e("timdOffense", timd_in_progress);
@@ -260,7 +260,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 setIntakeEnabled();
             }
             else{
-                setPlaceEnabled();
+                setPlaceEnabled(current_piece);
             }
             timd_in_progress = ExportUtils.createRecapAction(timd_in_progress, (int)match_time);
             Log.e("timdRecap", timd_in_progress);
@@ -307,11 +307,18 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         findViewById(R.id.dropButton).setEnabled(false);
     }
 
-    public void setPlaceEnabled(){
+    public void setPlaceEnabled(String piece){
+        if(current_piece.equals("Cargo")){
+            findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.selected_red_border));
+            findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.red_border));
+        }
+        else if(current_piece.equals("Hatch")){
+            findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.selected_red_border));
+            findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.red_border));
+        }
         findViewById(R.id.intakeCargoButton).setEnabled(false);
-        findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.red_border));
         findViewById(R.id.intakeHatchButton).setEnabled(false);
-        findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.red_border));
+
         findViewById(R.id.placeRocketButton).setEnabled(true);
         findViewById(R.id.placeRocketButton).setBackground(getDrawable(R.drawable.green_border));
         findViewById(R.id.placeCSButton).setEnabled(true);
@@ -331,6 +338,12 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             else{
                 button.setBackground(getDrawable(R.drawable.red_border));
             }
+        }
+        if(current_piece.equals("Cargo")){
+            findViewById(R.id.intakeCargoButton).setBackground(getDrawable(R.drawable.selected_red_border));
+        }
+        else{
+            findViewById(R.id.intakeHatchButton).setBackground(getDrawable(R.drawable.selected_red_border));
         }
         findViewById(R.id.dropButton).setEnabled(!findViewById(R.id.dropButton).isEnabled());
     }
