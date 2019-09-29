@@ -13,11 +13,26 @@
         <item>Did Not Climb</item>
     </string-array>
     <string-array name="scout_initials">
-        <item>Ryan A</item>
-        <item>Ritik M</item>
-        <item>Ravisha J</item>
-        <item>Ishan S</item>
-        <item>Evan L</item>
+        <item>Adhi</item>
+        <item>Big Chief</item>
+        <item>Christian</item>
+        <item>Christopher</item>
+        <item>Drew</item>
+        <item>Evan</item>
+        <item>Danny</item>
+        <item>Isaac A</item>
+        <item>Ishan</item>
+        <item>Justin</item>
+        <item>Kyle</item>
+        <item>Michael</item>
+        <item>Miguel</item>
+        <item>Nathan</item>
+        <item>Neel</item>
+        <item>Nigel</item>
+        <item>Ravisha</item>
+        <item>Riley</item>
+        <item>Ritik</item>
+        <item>Ryan</item>
     </string-array>
     <string-array name="driver_stations">
         <item>Red 1</item>
