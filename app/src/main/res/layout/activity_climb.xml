@@ -182,10 +182,10 @@
 
         <CheckBox
             android:id="@+id/climbAssisted"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Was Assisted to Hab 3"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -195,7 +195,7 @@
             android:layout_height="wrap_content"
             android:enabled="false"
             android:text="Double Climb"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -206,7 +206,7 @@
             android:clickable="true"
             android:enabled="false"
             android:text="Triple Climb"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textSize="36sp"
             android:textStyle="bold" />
 

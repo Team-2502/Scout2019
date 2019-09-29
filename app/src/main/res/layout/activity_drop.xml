@@ -42,20 +42,21 @@
                 android:textStyle="bold" />
 
             <RadioButton
-                android:id="@+id/dropHPSButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Human Player Station"
-                android:textAlignment="center"
-                android:textSize="36sp"
-                android:textStyle="bold" />
-            <RadioButton
                 android:id="@+id/dropOtherButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Middle of Field"
+                android:textAlignment="center"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/dropDoubleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Double Placed"
                 android:textAlignment="center"
                 android:textSize="36sp"
                 android:textStyle="bold" />

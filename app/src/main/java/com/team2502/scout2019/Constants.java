@@ -77,5 +77,6 @@ public class Constants {
         put("Climb", "ae");
         put("Offense", "af");
         put("Defense", "ag");
+        put("Double Placed", "ah");
     }};
 }
