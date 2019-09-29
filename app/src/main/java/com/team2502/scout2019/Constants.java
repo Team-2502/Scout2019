@@ -69,7 +69,7 @@ public class Constants {
         put("Front", "w");
         put("Side", "x");
         put("Rocket", "y");
-        put("CargoShip", "z");
+        put("Cargo Ship", "z");
         put("Drop", "aa");
         put("Middle of Field", "ab");
         put("Incap", "ac");

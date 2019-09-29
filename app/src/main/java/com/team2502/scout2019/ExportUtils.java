@@ -39,7 +39,7 @@ public class ExportUtils {
 
     public static String createPlaceCSAction(String timd_in_progress, String piece, int match_time, String place, boolean defense){
         String temp_timd = timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Place") +
-                "L" + Constants.TIMD_COMPRESSION_KEYS.get("CargoShip") +
+                "L" + Constants.TIMD_COMPRESSION_KEYS.get("Cargo Ship") +
                 "M" + match_time + "N" + Constants.TIMD_COMPRESSION_KEYS.get(piece) +
                 "O" + Constants.TIMD_COMPRESSION_KEYS.get("Level 1") + "Q" + Constants.TIMD_COMPRESSION_KEYS.get(place);
         if(defense){

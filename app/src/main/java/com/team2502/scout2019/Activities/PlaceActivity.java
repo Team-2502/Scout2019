@@ -39,7 +39,7 @@ public class PlaceActivity extends AppCompatActivity {
         place = intent.getStringExtra("com.team2502.scout2019.place");
 
         super.onCreate(savedInstanceState);
-        if(place.equals("CargoShip")){
+        if(place.equals("Cargo Ship")){
             setContentView(R.layout.activity_place_cargo_ship);
             csPlace = findViewById(R.id.csPlace);
             wasDefended = findViewById(R.id.defendedCSCheckBox);

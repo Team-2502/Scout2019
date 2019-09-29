@@ -105,6 +105,14 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 Log.e("timdAction", "Action Canceled");
             }
         }
+        // 6 ---- Drop
+        if (requestCode == 6) {
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdAction", timd_in_progress);
+            }
+            // TODO Allow to cancel drop
+        }
     }
 
     public void climb(View view){
@@ -193,7 +201,7 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2019.type", current_piece);
         intent.putExtra("com.team2502.scout2019.time",  match_time);
-        startActivityForResult(intent, 4);
+        startActivityForResult(intent, 6);
     }
 
     public void defense(View view){
