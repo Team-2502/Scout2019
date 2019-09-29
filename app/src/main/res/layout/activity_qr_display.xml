@@ -4,17 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:layout_weight="1"
-        android:layout_gravity="bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
         android:id="@+id/okButton"
-        android:text="OK"
-        android:onClick="onOKClick"/>
+        android:layout_width="135dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:onClick="onOKClick"
+        android:text="@android:string/ok" />
     <ImageView
         android:layout_weight="1"
         android:id="@+id/QRCode_Display"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/wifi_upload"
+        android:layout_width="145dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:onClick="onWifiClick"
+        android:text="Wifi"
+        android:textAlignment="center"
+        android:textDirection="firstStrong" />
 </LinearLayout>

@@ -1,18 +1,24 @@
 package com.team2502.scout2019.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -35,6 +41,7 @@ public class QRDisplayActivity extends AppCompatActivity {
      */
 
     ImageView tQRView;
+    String timd_in_progress;
 
     @Override
     public void onBackPressed() {
@@ -47,7 +54,7 @@ public class QRDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qr_display);
 
         Intent intent = getIntent();
-        String timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
+        timd_in_progress = intent.getStringExtra("com.team2502.scout2019.timd");
         boolean rescan = intent.getBooleanExtra("com.team2502.scout2019.rescan", false);
 
         showMatchQR(timd_in_progress);
@@ -133,17 +140,34 @@ public class QRDisplayActivity extends AppCompatActivity {
         }
     }
 
-    //Takes scout back to Main Activity and increases the match number by 1.
+    //Takes scout back to Main Activity
     public void onOKClick(View view) {
         Intent intent = new Intent(this, HeaderActivity.class);
         startActivity(intent);
     }
+
+    public void onWifiClick(View view){
+        if(isNetworkAvailable()){
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference();
+            myRef.child("rawTIMDs").child(timd_in_progress.split(",")[0]).setValue(timd_in_progress);
+
+            Toast toast = Toast.makeText(getApplicationContext(), "Upload Successful", Toast.LENGTH_SHORT);
+            toast.show();
+
+            Intent intent = new Intent(this, HeaderActivity.class);
+            startActivity(intent);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Not Connected to Wifi!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 }
-
-        /*
-        Leave for future reference!!!!!
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
-
-        myRef.child("rawTIMDs").child(timd_in_progress.split(",")[0]).setValue(timd_in_progress);
-        */
