@@ -67,8 +67,8 @@ public class ExportUtils {
         return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Recap") + "M" + time + ",";
     }
 
-    public static String createIncapAction(String timd_in_progress, int time){
-        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "M" + time + ",";
+    public static String createIncapAction(String timd_in_progress, int time, String cause){
+        return timd_in_progress + "K" + Constants.TIMD_COMPRESSION_KEYS.get("Incap") + "M" + time + "X" + Constants.TIMD_COMPRESSION_KEYS.get(cause) + ",";
     }
 
     public static String createDefenseAction(String timd_in_progress, int time){

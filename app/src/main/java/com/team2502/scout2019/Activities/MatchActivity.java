@@ -140,6 +140,21 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
                 Log.e("timdAction", "Action Canceled");
             }
         }
+        // 7 ---- Incap
+        else if (requestCode == 7){
+            if (resultCode == RESULT_OK) {
+                timd_in_progress = data.getData().toString();
+                Log.e("timdIncap", timd_in_progress);
+
+                CheckBox incap_box = findViewById(R.id.incap_check);
+                incapButtons();
+                currently_incap = true;
+                incap_box.setChecked(true);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Log.e("timdAction", "Action Canceled");
+            }
+        }
     }
 
     public void climb(View view){
@@ -274,11 +289,10 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
             incap_box.setChecked(false);
         }
         else{
-            incapButtons();
-            currently_incap = true;
-            incap_box.setChecked(true);
-            timd_in_progress = ExportUtils.createIncapAction(timd_in_progress, (int)match_time);
-            Log.e("timdIncap", timd_in_progress);
+            Intent intent = new Intent(this, IncapActivity.class);
+            intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
+            intent.putExtra("com.team2502.scout2019.time", match_time);
+            startActivityForResult(intent, 7);
         }
 
         findViewById(R.id.undoButton).setEnabled(true);

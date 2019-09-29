@@ -78,5 +78,9 @@ public class Constants {
         put("Offense", "af");
         put("Defense", "ag");
         put("Double Placed", "ah");
+        put("Stuck On Cargo", "ai");
+        put("Disabled/E-Stopped", "aj");
+        put("Tipped Over", "ak");
+        put("Other", "al");
     }};
 }

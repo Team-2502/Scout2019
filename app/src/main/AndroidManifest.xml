@@ -15,7 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activities.RescanActivity"></activity>
+        <activity
+            android:name=".Activities.IncapActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/NoTitleDialog" />
+        <activity android:name=".Activities.RescanActivity" />
         <activity
             android:name=".Activities.DropActivity"
             android:excludeFromRecents="true"
@@ -28,9 +32,10 @@
             android:name=".Activities.IntakeActivity"
             android:excludeFromRecents="true"
             android:theme="@style/NoTitleDialog" />
-        <activity android:name=".Activities.QRDisplayActivity"
+        <activity
+            android:name=".Activities.QRDisplayActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.PreMatchActivity"
             android:screenOrientation="landscape"
