@@ -158,6 +158,12 @@ public class MatchActivity extends AppCompatActivity implements ExitHabDialog.Ex
     }
 
     public void climb(View view){
+        if(currently_incap){
+            ExportUtils.createRecapAction(timd_in_progress, (int)match_time);
+        }
+        if(currently_defense){
+            ExportUtils.createOffenseAction(timd_in_progress, (int)match_time);
+        }
         Intent intent = new Intent(this, ClimbActivity.class);
         intent.putExtra("com.team2502.scout2019.timd", timd_in_progress);
         intent.putExtra("com.team2502.scout2019.time", match_time);
