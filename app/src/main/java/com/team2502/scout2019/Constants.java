@@ -41,6 +41,10 @@ public class Constants {
         put("Riley", "m");
         put("Ritik", "n");
         put("Ryan", "o");
+        put("Aedin", "v");
+        put("Rahul", "w");
+        put("Josie", "x");
+        put("Isaac W", "y");
     }};
 
     public static final Map<String, String> TIMD_COMPRESSION_KEYS = new HashMap<String, String>() {{

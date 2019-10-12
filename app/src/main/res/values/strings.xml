@@ -14,6 +14,7 @@
     </string-array>
     <string-array name="scout_initials">
         <item>Adhi</item>
+        <item>Aedin</item>
         <item>Big Chief</item>
         <item>Christian</item>
         <item>Christopher</item>
@@ -21,7 +22,9 @@
         <item>Evan</item>
         <item>Danny</item>
         <item>Isaac A</item>
+        <item>Isaac W</item>
         <item>Ishan</item>
+        <item>Josie</item>
         <item>Justin</item>
         <item>Kyle</item>
         <item>Michael</item>
@@ -30,9 +33,11 @@
         <item>Neel</item>
         <item>Nigel</item>
         <item>Ravisha</item>
+        <item>Rahul</item>
         <item>Riley</item>
         <item>Ritik</item>
         <item>Ryan</item>
+        <item>Other</item>
     </string-array>
     <string-array name="driver_stations">
         <item>Red 1</item>
