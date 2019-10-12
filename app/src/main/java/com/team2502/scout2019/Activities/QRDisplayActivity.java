@@ -150,7 +150,7 @@ public class QRDisplayActivity extends AppCompatActivity {
         if(isNetworkAvailable()){
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference();
-            myRef.child("rawTIMDs").child(timd_in_progress.split(",")[0]).setValue(timd_in_progress);
+            myRef.child("rawTIMDs").child(getTIMDName(timd_in_progress)).setValue(timd_in_progress);
 
             Toast toast = Toast.makeText(getApplicationContext(), "Upload Successful", Toast.LENGTH_SHORT);
             toast.show();
@@ -170,4 +170,12 @@ public class QRDisplayActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
+    public String getTIMDName(String scannedTIMD){
+        String TIMDName = "QM" + scannedTIMD.substring(1, scannedTIMD.indexOf('B')) + "-";
+        TIMDName += scannedTIMD.substring(scannedTIMD.indexOf('B') + 1, scannedTIMD.indexOf('C')) + "-";
+        TIMDName += scannedTIMD.substring(scannedTIMD.indexOf('D') + 1, scannedTIMD.indexOf('E'));
+        return TIMDName;
+    }
+
 }
