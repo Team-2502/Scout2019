@@ -45,6 +45,8 @@ public class Constants {
         put("Rahul", "w");
         put("Josie", "x");
         put("Isaac W", "y");
+        put("Abhi","z");
+        put("Varun", "aa");
         put("Other", "u");
     }};
 
